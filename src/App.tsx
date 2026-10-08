@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router'
 import { HomePage } from './pages/HomePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { ErrorBoundary } from './components/ErrorBoundary'
+import { CursorFollower } from './components/CursorFollower'
 import { siteConfig } from './config/site'
 import { projects } from './content/portfolio'
 
@@ -76,6 +77,7 @@ function RouteEffects() {
 export default function App() {
   return (
     <ErrorBoundary>
+      <CursorFollower />
       <RouteEffects />
       <a className="skip-link" href="#main">
         Skip to content

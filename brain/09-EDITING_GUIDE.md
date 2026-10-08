@@ -12,3 +12,4 @@ For a prioritized list of missing project details and case study worksheets, als
 8. **Motion:** change `src/hooks/useReveal.ts` for scroll effects. To disable them entirely, remove `useReveal` from HomePage. Browser reduced-motion already disables them.
 9. **3D:** replace `src/components/three/HeroScene.tsx`; the hero text remains independent in `HomePage.tsx`.
 10. **Deploy:** run `npm run lint`, `npm run test`, `npm run build`; set `VITE_SITE_URL` to the final origin; deploy `dist/` with SPA route fallback. See `11-DEPLOYMENT.md`.
+11. **Cursor follower:** change sizes, colors, ring border, hover scale, and click duration via the `--cursor-*` variables in `src/styles.css`. Change `dotFollowSpeed` and `ringFollowSpeed` in `src/components/CursorFollower.tsx` (larger values follow faster). Set `cursorFollowerConfig.enabled` to `false` there to disable the effect. The native cursor always remains visible; touch and reduced-motion devices automatically skip it.

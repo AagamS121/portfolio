@@ -26,6 +26,7 @@ describe('portfolio', () => {
     expect(screen.getByRole('heading', { name: 'Balaji Computers' })).toBeInTheDocument()
     expect(document.querySelector('.hero-static')).toBeInTheDocument()
     expect(document.querySelector('.webgl-layer')).not.toBeInTheDocument()
+    expect(document.querySelectorAll('.cursor-follower')).toHaveLength(1)
   })
 
   it('opens each project from the shared data model', async () => {
@@ -37,11 +38,13 @@ describe('portfolio', () => {
       'href',
       projects[0].liveUrl,
     )
+    expect(document.querySelectorAll('.cursor-follower')).toHaveLength(1)
   })
 
   it('shows a themed 404 for unknown paths', () => {
     renderAt('/projects/unknown')
     expect(screen.getByRole('heading', { name: 'Signal lost.' })).toBeInTheDocument()
+    expect(document.querySelectorAll('.cursor-follower')).toHaveLength(1)
   })
 
   it('validates the contact form with accessible field errors', async () => {

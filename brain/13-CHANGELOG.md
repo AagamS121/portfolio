@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-08
+
+- Added a global, fine-pointer cursor follower inspired by the supplied video: a fast warm-gold dot and a slower thin ring in the site's mint accent, with restrained hover and click feedback. Kept the native cursor, disabled the overlay for touch and reduced motion, and documented its settings.
+
 ## 2026-09-23
 
 - Created the React/TypeScript portfolio with all primary sections and responsive navigation.

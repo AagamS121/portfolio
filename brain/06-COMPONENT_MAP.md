@@ -2,6 +2,7 @@
 
 ```text
 App
+├── CursorFollower (decorative global mouse overlay)
 ├── RouteEffects (metadata, JSON-LD, scroll restoration)
 ├── HomePage
 │   ├── Header (desktop/mobile navigation)

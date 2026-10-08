@@ -13,6 +13,13 @@
   --text-muted: #80949b;
   --accent-primary: #9ce8d8;
   --accent-secondary: #ecaa7d;
+  --cursor-dot-size: 7px;
+  --cursor-ring-size: 34px;
+  --cursor-dot-color: #c99b4e;
+  --cursor-ring-color: color-mix(in srgb, var(--accent-primary) 65%, transparent);
+  --cursor-ring-width: 1px;
+  --cursor-hover-scale: 1.28;
+  --cursor-click-duration: 180ms;
   --border-primary: #27424e;
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -1640,6 +1647,56 @@ img {
   width: 100%;
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-md);
+}
+.cursor-follower {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.cursor-follower.is-visible {
+  opacity: 1;
+}
+.cursor-follower__dot,
+.cursor-follower__ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+.cursor-follower__dot {
+  width: var(--cursor-dot-size);
+  height: var(--cursor-dot-size);
+  background: var(--cursor-dot-color);
+  transition: scale var(--cursor-click-duration) ease;
+}
+.cursor-follower__ring {
+  width: var(--cursor-ring-size);
+  height: var(--cursor-ring-size);
+  border: var(--cursor-ring-width) solid var(--cursor-ring-color);
+  transition:
+    scale var(--cursor-click-duration) ease,
+    border-color var(--cursor-click-duration) ease;
+}
+.cursor-follower.is-hovered .cursor-follower__ring {
+  scale: var(--cursor-hover-scale);
+  border-color: var(--accent-primary);
+}
+.cursor-follower.is-pressed .cursor-follower__ring {
+  scale: 0.82;
+}
+.cursor-follower.is-pressed .cursor-follower__dot {
+  scale: 0.8;
+}
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-follower {
+    display: none;
+  }
 }
 @media (max-width: 650px) {
   .case-gallery {
